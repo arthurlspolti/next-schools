@@ -1,10 +1,17 @@
 import React from "react";
-import { ColumnSelectorProps } from "../interfaces/components";
+
+interface ColumnSelectorProps {
+  columns: string[];
+  selectedColumn: string;
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  className?: string;
+}
 
 export default function ColumnSelector({
   columns,
   selectedColumn,
   onChange,
+  className,
 }: ColumnSelectorProps) {
   const renderOptions = () => {
     const options = [
@@ -23,7 +30,7 @@ export default function ColumnSelector({
   };
 
   return (
-    <select value={selectedColumn} onChange={onChange}>
+    <select value={selectedColumn} onChange={onChange} className={className}>
       {renderOptions()}
     </select>
   );

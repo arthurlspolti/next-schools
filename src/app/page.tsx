@@ -7,6 +7,7 @@ import ColumnSelector from "./components/ColumnSelector";
 import IGetDataResponse, {
   IGetSchoolsNameResponse,
 } from "./interfaces/apiResponse";
+import Link from "next/link";
 
 export default function FilterableTable() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -76,14 +77,35 @@ export default function FilterableTable() {
   const headers = Object.keys(dados[0]);
 
   return (
-    <div>
-      <ColumnSelector
-        columns={headers}
-        selectedColumn={selectedColumn}
-        onChange={handleColumnChange}
-      />
-      <SearchInput value={searchTerm} onChange={handleSearchChange} />
-      <RenderTable data={searchResults} />
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <div className="flex items-center justify-center space-x-4 mb-8">
+        <div className="w-1/3">
+          <ColumnSelector
+            columns={headers}
+            selectedColumn={selectedColumn}
+            onChange={handleColumnChange}
+            className="p-2 border border-gray-300 rounded"
+          />
+        </div>
+        <div className="w-1/3">
+          <SearchInput
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className="p-2 border border-gray-300 rounded w-full"
+          />
+        </div>
+        <div className="w-1/3">
+          <Link
+            href="/pages/details"
+            className="p-2 bg-blue-500 text-white rounded"
+          >
+            Detalhes
+          </Link>
+        </div>
+      </div>
+      <div className="w-full">
+        <RenderTable data={searchResults} />
+      </div>
     </div>
   );
 }

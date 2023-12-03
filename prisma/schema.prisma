@@ -27,6 +27,6 @@ model dados {
 
 model nomes {
   id          Int     @id @default(autoincrement())
-  nomeEscolas String? @db.VarChar(99)
-  INEP        Int?
+  nomeEscolas String? @db.VarChar(99) @unique
+  INEP        Int? @unique
 }
