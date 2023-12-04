@@ -1,11 +1,5 @@
 import React from "react";
-
-interface ColumnSelectorProps {
-  columns: string[];
-  selectedColumn: string;
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-  className?: string;
-}
+import { ColumnSelectorProps } from "../interfaces/components";
 
 export default function ColumnSelector({
   columns,

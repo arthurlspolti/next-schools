@@ -27,14 +27,14 @@ export default function Details() {
         onClick={handleClickFundamental}
         className="mt-4 mb-4 px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
       >
-        Mostrar melhores médias do fundamental
+        Mostrar melhores médias do ensino fundamental
       </button>
       {showTable && <BestSaebTableWithData />}
       <button
         onClick={handleClickMedio}
         className="mt-4 mb-4 px-4 py-2 font-bold text-white bg-green-500 rounded hover:bg-green-700"
       >
-        Mostrar melhores médias do médio
+        Mostrar melhores médias do ensino médio
       </button>
       {showTableMedio && <BestSaebTableWithDataMedio />}
       <Link href="/pages/compare">

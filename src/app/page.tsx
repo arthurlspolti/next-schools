@@ -78,20 +78,20 @@ export default function FilterableTable() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="flex items-center justify-center space-x-4 mb-8">
+      <div className="flex items-center justify-center space-x-4 mb-8 gap-8">
         <div className="w-1/3">
           <ColumnSelector
             columns={headers}
             selectedColumn={selectedColumn}
             onChange={handleColumnChange}
-            className="p-2 border border-gray-300 rounded"
+            className="p-2 border border-gray-300 rounded h-10"
           />
         </div>
         <div className="w-1/3">
           <SearchInput
             value={searchTerm}
             onChange={handleSearchChange}
-            className="p-2 border border-gray-300 rounded w-full"
+            className="p-2 border border-gray-300 rounded w-full h-10"
           />
         </div>
         <div className="w-1/3">
@@ -99,7 +99,7 @@ export default function FilterableTable() {
             href="/pages/details"
             className="p-2 bg-blue-500 text-white rounded"
           >
-            Detalhes
+            Mais detalhes
           </Link>
         </div>
       </div>

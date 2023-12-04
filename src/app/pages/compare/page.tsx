@@ -20,7 +20,7 @@ export default function Compare() {
     <div className="flex flex-col items-center justify-center">
       <div className="flex justify-between items-center self-start w-[98%] p-2">
         <Link href="/pages/details">
-          <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
+          <button className="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700">
             Voltar a página de detalhes
           </button>
         </Link>

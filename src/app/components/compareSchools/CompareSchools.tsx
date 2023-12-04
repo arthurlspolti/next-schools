@@ -1,15 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
-interface CompareSchoolsProps {
-  school1: string;
-  school2: string;
-}
-
-interface SchoolData {
-  escola1: any[]; // Substitua any pelo tipo de dados da escola
-  escola2: any[]; // Substitua any pelo tipo de dados da escola
-}
+import { CompareSchoolsProps, SchoolData } from "@/app/interfaces/components";
 
 const CompareSchools: React.FC<CompareSchoolsProps> = ({
   school1,
@@ -124,7 +115,7 @@ const CompareSchools: React.FC<CompareSchoolsProps> = ({
           </div>
         </>
       ) : (
-        <p>Carregando...</p>
+        <p>Escolha duas escolas para comparar...</p>
       )}
     </div>
   );
