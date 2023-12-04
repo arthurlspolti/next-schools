@@ -47,7 +47,7 @@ export default function FilterableTable() {
     };
 
     fetchData();
-  }, []);
+  }, [dados]);
 
   useEffect(() => {
     const results = dados.filter((dado) =>
@@ -97,7 +97,7 @@ export default function FilterableTable() {
         <div className="w-1/3">
           <Link
             href="/pages/details"
-            className="p-2 bg-blue-500 text-white rounded"
+            className="p-2 bg-blue-500 hover:bg-blue-700 text-white rounded"
           >
             Mais detalhes
           </Link>

@@ -5,8 +5,11 @@ import { CompareSchoolsProps, SchoolData } from "@/app/interfaces/components";
 const CompareSchools: React.FC<CompareSchoolsProps> = ({
   school1,
   school2,
+  SelectYear,
+  SelectSchoolYears,
 }) => {
   const [data, setData] = useState<SchoolData | null>(null);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const compareSchools = async () => {
@@ -14,17 +17,32 @@ const CompareSchools: React.FC<CompareSchoolsProps> = ({
         const response = await axios.post("/api/compareSchools", {
           school1,
           school2,
+          year: SelectYear,
+          schoolYears: SelectSchoolYears,
         });
-        setData(response.data);
-      } catch (error) {
+        if (response.data.error) {
+          setErrorMessage(response.data.error);
+        } else {
+          setData(response.data);
+          setErrorMessage(""); // Limpa a mensagem de erro
+        }
+      } catch (error: any) {
         console.error("Erro ao comparar escolas", error);
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.error
+        ) {
+          setErrorMessage(error.response.data.error);
+        } else {
+          setErrorMessage("Erro no servidor");
+        }
       }
     };
-
-    if (school1 && school2) {
+    if (school1 && school2 && SelectYear && SelectSchoolYears) {
       compareSchools();
     }
-  }, [school1, school2]);
+  }, [school1, school2, SelectYear, SelectSchoolYears]);
 
   const compareValues = (key: string) => {
     const school1Value = data?.escola1[0][key];
@@ -43,7 +61,13 @@ const CompareSchools: React.FC<CompareSchoolsProps> = ({
 
   return (
     <div className="overflow-x-auto w-[99%]">
-      {data ? (
+      {errorMessage ? (
+        <p>{errorMessage}</p>
+      ) : data &&
+        data.escola1 &&
+        data.escola1.length > 0 &&
+        data.escola2 &&
+        data.escola2.length > 0 ? (
         <>
           <h2 className="text-2xl font-bold mb-4">{school1}</h2>
           <table className="min-w-full divide-y divide-gray-200 table-auto w-full text-xs">

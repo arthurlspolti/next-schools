@@ -25,7 +25,7 @@ export default function Details() {
       </Link>
       <button
         onClick={handleClickFundamental}
-        className="mt-4 mb-4 px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
+        className="mt-4 mb-4 px-4 py-2 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-700"
       >
         Mostrar melhores médias do ensino fundamental
       </button>
@@ -38,7 +38,7 @@ export default function Details() {
       </button>
       {showTableMedio && <BestSaebTableWithDataMedio />}
       <Link href="/pages/compare">
-        <button className="mt-4 px-4 py-2 font-bold text-white bg-yellow-500 rounded hover:bg-yellow-700">
+        <button className="mt-4 px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
           Comparar escolas
         </button>
       </Link>

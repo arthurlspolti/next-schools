@@ -27,8 +27,9 @@ export interface BestSaebTableProps {
 export interface CompareSchoolsProps {
   school1: string;
   school2: string;
+  SelectYear: string;
+  SelectSchoolYears: string;
 }
-
 export interface SchoolData {
   escola1: any[];
   escola2: any[];
